@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dynamic Pricing Predictor</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Dynamic Parking Price Predictor</h1>
+
+    <p>
+        This machine learning web application predicts parking prices dynamically
+        based on occupancy, queue length, and special day conditions.
+        The goal of this project is to demonstrate how AI and machine learning
+        can help optimize real-time pricing systems and improve parking management efficiency.
+    </p>
+
+    <p>
+        This project was initially inspired by the Summer Analytics capstone project
+        by IIT Guwahati and was later independently extended by Rajat into a complete
+        end-to-end machine learning deployment application using Flask, HTML, CSS,
+        and Random Forest Regression.
+    </p>
+    <div class="container">
+        <form action="/predict" method="post">
+            <label>Occupancy:</label>
+            <input type="number" name="occupancy" , placeholder="Entre Occupancy">
+            <br><br>
+            <label>Queue Length:</label>
+            <input type="number" name="queue" , placeholder="Entre queue length">
+            <br><br>
+            <label>Special Day:</label>
+            <input type="number" name="special" , placeholder="Entre special day ">
+            <br><br>
+            <button type="submit">predict price</button>
+            <h2>Predicted prize :{{prediction_text}}</h2>
+        </form>
+    </div>
+</body>
+
+</html>
