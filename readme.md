@@ -1,3 +1,14 @@
+# Dynamic Pricing Predictor
+
+## Live Demo
+You can access the live application here: **[https://prize-predictor-app.onrender.com](https://prize-predictor-app.onrender.com)**
+
+---
+
+
+
+
+
 # Parking Price Predictor 
 
 A Machine Learning web application that predicts parking prices dynamically based on parking conditions such as occupancy, queue length, and special day status.
