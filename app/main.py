@@ -1,7 +1,9 @@
+
 from flask import Flask
 import pickle
 import numpy as np
 from flask import render_template, request
+
 app = Flask(__name__)
 model = pickle.load(open('model/model.pkl', 'rb'))
 
