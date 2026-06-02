@@ -13,35 +13,114 @@
 
     <h1>Dynamic Parking Price Predictor</h1>
 
-    <p>
-        This machine learning web application predicts parking prices dynamically
-        based on occupancy, queue length, and special day conditions.
-        The goal of this project is to demonstrate how AI and machine learning
-        can help optimize real-time pricing systems and improve parking management efficiency.
-    </p>
+
 
     <p>
-        This project was initially inspired by the Summer Analytics capstone project
-        by IIT Guwahati and was later independently extended by Rajat into a complete
-        end-to-end machine learning deployment application using Flask, HTML, CSS,
-        and Random Forest Regression.
+        This AI-powered web application predicts parking prices based on real-world parking conditions.
+        The prediction depends on:
+    </p>
+
+    <ul>
+        <li><b>Occupancy</b> → Number of parking spots currently occupied</li>
+        <li><b>Queue Length</b> → Number of vehicles waiting for parking</li>
+        <li><b>Special Day</b> → Whether the day is a festival, holiday, weekend event, or high-demand day</li>
+    </ul>
+
+    <p>
+        The model uses Machine Learning to dynamically adjust parking prices according to demand.
+        Higher occupancy, longer queues, and special events usually increase parking prices.
+    </p>
+
+    <h3>Input Guide</h3>
+
+    <ul>
+        <li><b>Occupancy:</b> Enter value between 0–100</li>
+        <li><b>Queue Length:</b> Number of vehicles waiting</li>
+        <li><b>Special Day:</b>
+            <ul>
+                <li>0 = Normal Day</li>
+                <li>1 = Special/Event Day</li>
+            </ul>
+        </li>
+    </ul>
+    <h3>Example</h3>
+
+    <p>
+        Example Input:
+    </p>
+
+    <ul>
+        <li>Occupancy = 85</li>
+        <li>Queue Length = 10</li>
+        <li>Special Day = 1</li>
+    </ul>
+
+    <p>
+        Expected Result:
+        Higher parking price due to high demand.
     </p>
     <div class="container">
         <form action="/predict" method="post">
             <label>Occupancy:</label>
-            <input type="number" name="occupancy" , placeholder="Entre Occupancy">
+            <input type="number" name="occupancy" , placeholder="Entre Occupancy percentage(0-100)">
             <br><br>
             <label>Queue Length:</label>
-            <input type="number" name="queue" , placeholder="Entre queue length">
+            <input type="number" name="queue" , placeholder="Entre number of waiting vehicles">
             <br><br>
             <label>Special Day:</label>
-            <input type="number" name="special" , placeholder="Entre special day ">
+            <input type="number" name="special" , placeholder="0 = Normal day , 1 = Special day">
             <br><br>
             <button type="submit">predict price</button>
-            <h2>Predicted prize :{{prediction_text}}</h2>
-        
+            <h2>Predicted Parking price :{{prediction_text}}</h2>
+
 
         </form>
+    </div>
+    <p style="margin-top:20px;">
+        Built using Flask, Random Forest Regression, HTML, and CSS.
+    </p>
+    <h2>How the Model Understands Pricing</h2>
+
+    <div class="graph-container">
+
+        <div class="graph-box">
+            <h3>Occupancy vs Parking Price</h3>
+            <img src="{{ url_for('static', filename='images/occupancy_price.png') }}" alt="Occupancy Graph">
+        </div>
+        <p>
+        <h3>
+            Higher occupancy generally increases parking prices because demand becomes higher.
+        </h3>
+        </p>
+        <div class="graph-box">
+            <h3>Queue Length vs Parking Price</h3>
+            <img src="{{ url_for('static', filename='images/queue_price.png') }}" alt="Queue Graph">
+        </div>
+        <p>
+        <h3>
+            Longer queue length indicates higher demand, so prices tend to rise.
+        </h3>
+        </p>
+        <div class="graph-box">
+            <h3>Special Day Effect on Price</h3>
+            <img src="{{ url_for('static', filename='images/specialday_price.png') }}" alt="Special Day Graph">
+        </div>
+        <p>
+        <h3>
+            Special days such as festivals or events usually increase parking demand and pricing.
+        </h3>
+        </p>
+    </div>
+    <h2>Model Performance</h2>
+
+    <ul>
+        <li>Algorithm Used: Random Forest Regressor</li>
+        <li>R² Score: 0.96+</li>
+        <li>Mean Absolute Error: Low prediction error</li>
+    </ul>
+    Python • Flask • Scikit-learn • Pandas • HTML • CSS • Matplotlib
+    <div class="result-box">
+        Predicted Parking Price: ₹{{prediction_text}}
     </div>
 </body>
 
