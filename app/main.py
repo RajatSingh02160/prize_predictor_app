@@ -1,4 +1,5 @@
 
+from flask import redirect
 from flask import Flask
 import pickle
 import numpy as np
@@ -31,6 +32,16 @@ def predict():
 
     prediction = model.predict(feature)
     return render_template('index.html', prediction_text=f"₹{round(prediction[0], 2)}")
+
+
+@app.route('/analysis')
+def analysis():
+    return redirect("/static/3d_plot.html")
+
+
+@app.route('/surface')
+def surface():
+    return redirect("/static/surface_plot.html")
 
 
 if __name__ == '__main__':

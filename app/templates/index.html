@@ -79,7 +79,7 @@
     <p style="margin-top:20px;">
         Built using Flask, Random Forest Regression, HTML, and CSS.
     </p>
-    <h2>How the Model Understands Pricing</h2>
+    <!-- <h2>How the Model Understands Pricing</h2>
 
     <div class="graph-container">
 
@@ -110,18 +110,116 @@
             Special days such as festivals or events usually increase parking demand and pricing.
         </h3>
         </p>
-    </div>
-    <h2>Model Performance</h2>
+    </div> -->
+    <!-- <h2>Model Performance</h2> -->
 
-    <ul>
-        <li>Algorithm Used: Random Forest Regressor</li>
-        <li>R² Score: 0.9999618053690745</li>
-        <li>Mean Absolute Error: Low prediction error of 0.06612193794230066</li>
-    </ul>
+    <div class="model-performance">
+        <h2>Model Performance</h2>
+
+        <ul>
+            <li><strong>Algorithm Used:</strong> Random Forest Regressor</li>
+            <li><strong>Cross Validation Scores:</strong>
+                [0.9708, 0.9863, 0.9961, 0.7100, 0.9945]
+            </li>
+            <li><strong>Average CV Score:</strong> 0.9315</li>
+            <li>
+                The model shows strong and consistent performance across multiple folds,
+                indicating good generalization capability.
+            </li>
+        </ul>
+    </div>
     Python • Flask • Scikit-learn • Pandas • HTML • CSS • Matplotlib
     <div class="result-box">
         Predicted Parking Price: ₹{{prediction_text}}
     </div>
+    <div class="analysis-info">
+
+        <h2>Model Insights & Visual Analysis</h2>
+
+        <p>
+            The following visualizations help explain how the machine learning model
+            understands parking price behavior based on different real-world factors.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Correlation Heatmap:</strong>
+                Shows how strongly different features are related to parking price.
+            </li>
+
+            <li>
+                <strong>Feature Importance Plot:</strong>
+                Explains which features contribute the most to the model’s predictions.
+            </li>
+
+            <li>
+                <strong>Residual Plot:</strong>
+                Helps evaluate prediction errors and model reliability.
+            </li>
+
+            <li>
+                <strong>Cross Validation Analysis:</strong>
+                Demonstrates the consistency and generalization ability of the model across multiple data splits.
+            </li>
+
+            <li>
+                <strong>Interactive 3D Visualization:</strong>
+                Displays how occupancy and queue length together influence parking price dynamically.
+            </li>
+        </ul>
+
+    </div>
+
+
+
+
+    <div class="advanced-analysis">
+
+        <h1>Advanced Model Analysis</h1>
+
+    </div>
+
+
+    <div class="graph-box">
+        <h2>Correlation Heatmap</h2>
+        <img src="{{ url_for('static', filename='images/heatmap.png') }}" width="700">
+    </div>
+
+    <div class="graph-box">
+        <h2>Feature Importance</h2>
+        <img src="{{ url_for('static', filename='images/feature_importance.png') }}" width="700">
+    </div>
+
+    <div class="graph-box">
+        <h2>Residual Plot</h2>
+        <img src="{{ url_for('static', filename='images/residual_plot.png') }}" width="700">
+    </div>
+
+    <div class="graph-box">
+        <h2>Cross Validation Results</h2>
+        <img src="{{ url_for('static', filename='images/cv_scores.png') }}" width="700">
+    </div>
+
+    <a href="/analysis" target="_blank">
+        <button class="analysis-btn">
+            View Interactive 3D Analysis
+        </button>
+    </a>
+    <a href="/surface" target="_blank">
+        <button class="analysis-btn">
+            View 3D Surface Plot
+        </button>
+    </a>
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
